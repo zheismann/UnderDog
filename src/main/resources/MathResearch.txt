@@ -1,0 +1,12 @@
+Explanation of radians: http://www.mathwarehouse.com/trigonometry/radians/convert-degee-to-radians.php
+
+
+http://www.teacherschoice.com.au/maths_library/coordinates/polar_-_rectangular_conversion.htm :
+
+ * Rectangular coordinates and polar coordinates are two different ways of using two numbers to locate a point on a plane.
+
+ * Rectangular coordinates are in the form (x,y), where 'x' and 'y' are the horizontal and vertical distances from the origin:
+
+ * Polar coordinates are in the form: (r,q), where 'r' is the distance from the origin to the point, and 'q' is the angle measured from the positive 'x' axis to the point:
+
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>zh</groupId>
+    <artifactId>UnderDog</artifactId>
+    <version>1.0-SHAPSHOT</version>
+
+    <name>UnderDog</name>
+    <inceptionYear>2005</inceptionYear>
+    <developers>
+        <developer>
+            <name>Zac Heismann</name>
+            <email>zac.heismann@gmail.com</email>
+        </developer>
+    </developers>
+    <properties>
+        <robocode.version>1.7.4.4</robocode.version>
+        <author>Zac Heismann</author>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>robocode</groupId>
+            <artifactId>robocode</artifactId>
+            <version>${robocode.version}</version>
+            <systemPath>C:/jdk/tools/robocode/libs/robocode.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>zh.UnderDog_${buildtimestamp}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/UnderDog.data</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerVersion>1.6</compilerVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.groovy.maven</groupId>
+                <artifactId>gmaven-plugin</artifactId>
+                <version>1.0-rc-4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <source>
+                                import java.util.Date
+                                import java.text.MessageFormat
+                                def vartimestamp = MessageFormat.format("{0,date,yyyyMMdd-HH.mm}", new Date())
+                                project.properties['buildtimestamp'] = vartimestamp
+                            </source>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

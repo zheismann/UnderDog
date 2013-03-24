@@ -26,7 +26,8 @@
             <groupId>robocode</groupId>
             <artifactId>robocode</artifactId>
             <version>${robocode.version}</version>
-            <systemPath>C:/jdk/tools/robocode/libs/robocode.jar</systemPath>
+            <!--<systemPath>C:/jdk/tools/robocode/libs/robocode.jar</systemPath>-->
+            <systemPath>C:/Users/zac/Robocode/libs/robocode.jar</systemPath>
             <scope>system</scope>
         </dependency>
     </dependencies>

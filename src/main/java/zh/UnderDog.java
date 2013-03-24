@@ -30,6 +30,7 @@ public class UnderDog extends AdvancedRobot
 {
     private static MyLogger logger = MyLogger.getLogger( UnderDog.class.getName() );
     private final RobotBrain myBrain;
+    private Battlefield battlefield;
     private boolean hasPlayedClip = false;
     private static final int EXTERNAL_BUFFER_SIZE = 128000;
 
@@ -40,6 +41,9 @@ public class UnderDog extends AdvancedRobot
 
     public void run()
     {
+        // can't be called in the constructor
+        this.battlefield = new Battlefield( this );
+        
         this.myBrain.reset();
         if ( ( getOthers() == 1 ) && ( !this.hasPlayedClip ) )
         {
@@ -128,6 +132,11 @@ public class UnderDog extends AdvancedRobot
         return new Point2D.Double( getX(), getY() );
     }
 
+    public Battlefield getBattlefield()
+    {
+        return battlefield;
+    }
+    
     private void playClip()
     {
         try
